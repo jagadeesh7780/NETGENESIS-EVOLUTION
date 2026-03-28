@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NETgenesis — Evolution of the Internet</title>
+    <meta name="description"
+        content="An immersive interactive journey through the history of the internet, from ARPANET to Web3." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- SKIP LINK -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- CUSTOM CURSOR -->
+    <div id="c-dot" aria-hidden="true"></div>
+    <div id="c-ring" aria-hidden="true"></div>
+
+    <!-- SCROLL PROGRESS -->
+    <div id="scroll-bar" role="progressbar" aria-label="Page scroll progress"></div>
+
+    <!-- LOADING SCREEN -->
+    <div id="loader" aria-live="polite" aria-label="Loading experience">
+        <div class="loader-ascii" aria-hidden="true">
+            ██╗███╗ ██╗███████╗████████╗███████╗██████╗
+            ██║████╗ ██║██╔════╝╚══██╔══╝██╔════╝██╔══██╗
+            ██║██╔██╗ ██║█████╗ ██║ █████╗ ██████╔╝
+            ██║██║╚██╗██║██╔══╝ ██║ ██╔══╝ ██╔══██╗
+            ██║██║ ╚████║███████╗ ██║ ███████╗██║ ██║
+            ╚═╝╚═╝ ╚═══╝╚══════╝ ╚═╝ ╚══════╝╚═╝ ╚═╝</div>
+        <div class="loader-label">Initialising Timeline…</div>
+        <div class="loader-progress-wrap">
+            <div class="loader-progress-fill"></div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-logo">NET<span>GENESIS</span></div>
+        <div id="era-indicator" class="nav-era-indicator" aria-live="polite">— Est. 1969</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Intro</a></li>
+            <li><a href="#arpanet">ARPANET</a></li>
+            <li><a href="#dotcom">Dot-com</a></li>
+            <li><a href="#social">Social</a></li>
+            <li><a href="#future">Future</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <!-- HERO SECTION -->
+        <section id="hero" aria-labelledby="hero-h1">
+            <canvas id="hero-canvas" aria-hidden="true"></canvas>
+            <div class="scanline" aria-hidden="true"></div>
+
+            <div class="hero-inner">
+                <div class="hero-tag">1969 → Present</div>
+                <h1 id="hero-h1" class="hero-title">
+                    THE WEB
+                    <em class="line-2">Evolves</em>
+                    <span class="line-3">Always</span>
+                </h1>
+                <p class="hero-subtitle">
+                    From four nodes in a basement to 5 billion users.<br>
+                    An immersive journey through internet history.
+                </p>
+            </div>
+
+            <div class="ticker-wrap" aria-hidden="true">
+                <div class="ticker-inner">
+                    <span class="ticker-item">ARPANET<span class="sep">◆</span>1969</span>
+                    <span class="ticker-item">TCP/IP<span class="sep">◆</span>1983</span>
+                    <span class="ticker-item">World Wide Web<span class="sep">◆</span>1991</span>
+                    <span class="ticker-item">Netscape<span class="sep">◆</span>1994</span>
+                    <span class="ticker-item">Google<span class="sep">◆</span>1998</span>
+                    <span class="ticker-item">Dot-com crash<span class="sep">◆</span>2000</span>
+                    <span class="ticker-item">Facebook<span class="sep">◆</span>2004</span>
+                    <span class="ticker-item">iPhone<span class="sep">◆</span>2007</span>
+                    <span class="ticker-item">Web3<span class="sep">◆</span>2020s</span>
+                    <span class="ticker-item">AI Era<span class="sep">◆</span>Now</span>
+                    <!-- Duplicate for seamless loop -->
+                    <span class="ticker-item">ARPANET<span class="sep">◆</span>1969</span>
+                    <span class="ticker-item">TCP/IP<span class="sep">◆</span>1983</span>
+                    <span class="ticker-item">World Wide Web<span class="sep">◆</span>1991</span>
+                    <span class="ticker-item">Netscape<span class="sep">◆</span>1994</span>
+                    <span class="ticker-item">Google<span class="sep">◆</span>1998</span>
+                    <span class="ticker-item">Dot-com crash<span class="sep">◆</span>2000</span>
+                    <span class="ticker-item">Facebook<span class="sep">◆</span>2004</span>
+                    <span class="ticker-item">iPhone<span class="sep">◆</span>2007</span>
+                    <span class="ticker-item">Web3<span class="sep">◆</span>2020s</span>
+                    <span class="ticker-item">AI Era<span class="sep">◆</span>Now</span>
+                </div>
+            </div>
+
+            <div class="hero-scroll-cue" aria-hidden="true">
+                <span>Scroll to explore</span>
+                <div class="scroll-line"></div>
+            </div>
+            <div class="hero-year" aria-hidden="true">EST. 1969</div>
+        </section>
+
+        <!-- ARPANET SECTION -->
+        <section id="arpanet" style="--era-color: #00ff87" aria-labelledby="arpanet-h2">
+            <div class="bg-grid" aria-hidden="true"></div>
+            <div class="bg-glow parallax-el" data-speed="0.3"
+                style="width:500px;height:500px;background:#00ff87;left:-200px;top:50%;transform:translateY(-50%)"
+                aria-hidden="true"></div>
+
+            <div class="era-label" aria-hidden="true">
+                <div class="era-dot"></div>
+                <span class="era-text">Early Internet</span>
+                <span class="era-num">01/04</span>
+            </div>
+
+            <div class="arpanet-grid">
+                <div>
+                    <div class="section-kicker r d1">Origins</div>
+                    <h2 id="arpanet-h2" class="section-heading r d2">The<br><em>First</em><br>Network</h2>
+                    <p class="section-body r d3">
+                        In 1969, four computers at UCLA, Stanford, UC Santa Barbara, and the University of Utah were
+                        connected for the first time.
+                        The first message sent was "LO" — a login attempt that crashed after two characters.
+                    </p>
+                    <p class="section-body r d4">
+                        Over the next two decades, protocols were invented and the foundation for the global internet
+                        was quietly built.
+                    </p>
+
+                    <div class="timeline-dots r d5" role="list">
+                        <div class="tdot" tabindex="0">
+                            <div class="tdot-marker"></div>
+                            <div>
+                                <div class="tdot-year">1969</div>
+                                <div class="tdot-title">ARPANET Goes Live</div>
+                                <div class="tdot-desc">4-node network links US universities.</div>
+                            </div>
+                        </div>
+                        <div class="tdot" tabindex="0">
+                            <div class="tdot-marker"></div>
+                            <div>
+                                <div class="tdot-year">1971</div>
+                                <div class="tdot-title">Email is Invented</div>
+                                <div class="tdot-desc">Ray Tomlinson sends the first email.</div>
+                            </div>
+                        </div>
+                        <div class="tdot" tabindex="0">
+                            <div class="tdot-marker"></div>
+                            <div>
+                                <div class="tdot-year">1983</div>
+                                <div class="tdot-title">TCP/IP — The Protocol</div>
+                                <div class="tdot-desc">The universal language of the internet.</div>
+                            </div>
+                        </div>
+                        <div class="tdot" tabindex="0">
+                            <div class="tdot-marker"></div>
+                            <div>
+                                <div class="tdot-year">1991</div>
+                                <div class="tdot-title">WWW Goes Public</div>
+                                <div class="tdot-desc">Tim Berners-Lee releases the World Wide Web.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="node-map r-r d2">
+                    <svg id="node-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="node-circle" cx="200" cy="200" r="160" />
+                        <circle class="node-circle" cx="200" cy="200" r="110" />
+                        <circle class="node-circle" cx="200" cy="200" r="55" />
+                        <line class="node-line" x1="200" y1="60" x2="330" y2="200" />
+                        <line class="node-line" x1="330" y1="200" x2="200" y2="330" />
+                        <line class="node-line" x1="200" y1="330" x2="70" y2="200" />
+                        <line class="node-line" x1="70" y1="200" x2="200" y2="60" />
+                        <g id="n1">
+                            <circle class="node-dot" cx="200" cy="60" r="10" />
+                            <circle class="node-dot-inner" cx="200" cy="60" r="5" /><text x="200" y="42"
+                                text-anchor="middle" font-size="9" fill="#f0ede8">UCLA</text>
+                        </g>
+                        <g id="n2">
+                            <circle class="node-dot" cx="330" cy="200" r="10" />
+                            <circle class="node-dot-inner" cx="330" cy="200" r="5" /><text x="348" y="204" font-size="9"
+                                fill="#f0ede8">Stanford</text>
+                        </g>
+                        <g id="n3">
+                            <circle class="node-dot" cx="200" cy="330" r="10" />
+                            <circle class="node-dot-inner" cx="200" cy="330" r="5" /><text x="200" y="350"
+                                text-anchor="middle" font-size="9" fill="#f0ede8">UCSB</text>
+                        </g>
+                        <g id="n4">
+                            <circle class="node-dot" cx="70" cy="200" r="10" />
+                            <circle class="node-dot-inner" cx="70" cy="200" r="5" /><text x="52" y="204"
+                                text-anchor="end" font-size="9" fill="#f0ede8">Utah</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- DOT-COM SECTION -->
+        <section id="dotcom" style="--era-color: #ffaa00" aria-labelledby="dotcom-h2">
+            <div class="era-label" aria-hidden="true">
+                <div class="era-dot"></div>
+                <span class="era-text">Dot-Com Era</span>
+                <span class="era-num">02/04</span>
+            </div>
+            <div class="dotcom-inner">
+                <div class="dotcom-header">
+                    <div class="r-l">
+                        <div class="section-kicker">1995 – 2001</div>
+                        <h2 id="dotcom-h2" class="section-heading">Boom.<br>Bust.<br><em
+                                style="color:var(--amber)">Build.</em></h2>
+                    </div>
+                    <div class="r-r d2">
+                        <p class="section-body">
+                            The 1990s brought a gold rush of browser wars, e-commerce dreams, and billion-dollar
+                            valuations. Then came the spectacular crash in 2000.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cards-grid">
+                    <article class="era-card r d1"><span class="card-icon">🌐</span>
+                        <div class="card-sub">1994</div>
+                        <div class="card-title">Netscape Navigator</div>
+                        <div class="card-body">The browser that brought the web to the masses.</div>
+                    </article>
+                    <article class="era-card r d2"><span class="card-icon">📦</span>
+                        <div class="card-sub">1995</div>
+                        <div class="card-title">Amazon & eBay</div>
+                        <div class="card-body">Online bookstore and digital auction house.</div>
+                    </article>
+                    <article class="era-card r d3"><span class="card-icon">🔍</span>
+                        <div class="card-sub">1998</div>
+                        <div class="card-title">Google Search</div>
+                        <div class="card-body">Two Stanford students changed how we find information.</div>
+                    </article>
+                </div>
+
+                <div class="crash-bar r">
+                    <span class="crash-icon">📉</span>
+                    <div class="crash-text">
+                        <div class="ct-title">The NASDAQ Crash — March 2000</div>
+                        <p>$5 trillion in market value evaporated. Many companies disappeared, but the survivors built
+                            the modern web.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL & MOBILE SECTION -->
+        <section id="social" style="--era-color: #b06aff" aria-labelledby="social-h2">
+            <div class="social-inner">
+                <div>
+                    <div class="section-kicker r d1">2004 – 2020</div>
+                    <h2 id="social-h2" class="section-heading r d2">The<br>Human<br><em
+                            style="color:var(--violet)">Network</em></h2>
+                    <p class="section-body r d3">Social networks connected the world. The smartphone put the internet in
+                        everyone's pocket.</p>
+
+                    <div class="stats-block r d5">
+                        <div class="stat-item">
+                            <div class="stat-val">5B+</div>
+                            <div class="stat-lbl">Internet users</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-val">63%</div>
+                            <div class="stat-lbl">Use social daily</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phone-wrap r-r d2">
+                    <div class="phone">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="app-grid">
+                                <div class="app-icon fb">📘</div>
+                                <div class="app-icon ig">📸</div>
+                                <div class="app-icon yt">▶️</div>
+                                <div class="app-icon tk">🎵</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FUTURE SECTION -->
+        <section id="future" style="--era-color: #0af" aria-labelledby="future-h2">
+            <div class="future-inner">
+                <div class="section-kicker r">2020s → Beyond</div>
+                <h2 id="future-h2" class="future-heading r d2">
+                    <span class="grad">The Next</span>
+                    <span class="outline">Chapter</span>
+                </h2>
+                <p class="future-sub r d3">
+                    Web3 promises ownership. AI promises intelligence. The next internet won't be something you browse —
+                    it will be something you inhabit.
+                </p>
+
+                <div class="pillars r d3">
+                    <article class="pillar">
+                        <div class="pillar-icon">⛓️</div>
+                        <div class="pillar-tag">Web3</div>
+                        <div class="pillar-title">Decentralised Web</div>
+                        <div class="pillar-desc">Blockchain-based ownership</div>
+                    </article>
+                    <article class="pillar">
+                        <div class="pillar-icon">🤖</div>
+                        <div class="pillar-tag">AI</div>
+                        <div class="pillar-title">Intelligent Web</div>
+                        <div class="pillar-desc">LLMs and autonomous agents</div>
+                    </article>
+                </div>
+
+                <div class="cta-wrap r d5">
+                    <a href="#hero" class="btn btn-primary">↑ Restart Journey</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
